@@ -212,11 +212,25 @@ void    test_strcpy(void)
 
     printf("%s\n", ft_strcpy(test1, "11111111111111111111118"));
     printf("%s\n", strcpy(test2, "11111111111111111111118"));
-
     printf("\n*************************************************************\n");
 
 }
 
+void    test_strncpy(void)
+{
+    char test1[50] = "asd";
+    char test2[50] = "asd";
+    
+    printf("ft_strNcpy\n");
+    printf("%s\n", ft_strncpy(test1, "uiop", 5));
+    printf("%s\n", strncpy(test2, "uiop", 5));
+    printf("%s\n", ft_strncpy(test1, "qwerty", 4));
+    printf("%s\n", strncpy(test2, "qwerty", 4));
+    printf("%s\n", ft_strncpy(test1, "z", 1));
+    printf("%s\n", strncpy(test2, "z", 1));
+    printf("\n*************************************************************\n");
+
+}
 void    test_strstr(void)
 {
     strstr("abc", "a");
@@ -254,6 +268,7 @@ void    test_strstr(void)
     test_atoi();
     test_strdup();
     test_strcpy();
+    test_strncpy();
     //test_strstr();
 	return (0);
 }
