@@ -1,0 +1,259 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_libft.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: bsausage <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/09/04 13:17:48 by bsausage          #+#    #+#             */
+/*   Updated: 2019/09/04 15:02:34 by bsausage         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <ctype.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include "libft.h"
+
+void	test_strlen(void)
+{
+	const char a1[] = "Hello"; 
+	const char a2[] = "";
+	const char a3[] = "12";
+
+	printf("ft_strlen\n");
+	printf("ft_fun = %lu\t lib_fun = %lu\n", ft_strlen(a1), strlen(a1));
+	printf("ft_fun = %lu\t lib_fun = %lu\n", ft_strlen(a2), strlen(a2));
+	printf("ft_fun = %lu\t lib_fun = %lu\n", ft_strlen(a3), strlen(a3));
+	printf("\n*************************************************************\n");
+}
+
+void	test_isalpha(void)
+{
+	int i;
+
+	printf("ft_isalpha\n");
+	for (i = - 5; i <= 255; i++)
+	{
+		if (ft_isalpha(i) != isalpha(i))
+		{
+			printf("error on the %d-th step\n", i);
+			break ;
+		}
+	}
+	if (i == 256)
+		printf("OK\n");
+	printf("\n*************************************************************\n");
+}
+
+void	test_isdigit(void)
+{
+	int i;
+		
+	printf("ft_isdigit\n");
+	for (i = - 5; i <= 255; i++)
+	{
+		if (ft_isdigit(i) != isdigit(i))
+		{
+			printf("error on the %d-th step\n", i);
+			break ;
+		}
+	}
+	if (i == 256)
+		printf("OK\n");
+	printf("\n*************************************************************\n");
+}
+
+void	test_isalnum(void)
+{
+	int i;
+		
+	printf("ft_isalnum\n");
+	for (i = - 5; i <= 255; i++)
+	{
+		if (ft_isalnum(i) != isalnum(i))
+		{
+			printf("error on the %d-th step\n", i);
+			break ;
+		}
+	}
+	if (i == 256)
+		printf("OK\n");
+	printf("\n*************************************************************\n");
+}
+
+void	test_isascii(void)
+{
+    int i;
+    
+    printf("ft_isascii\n");
+    for (i = - 5; i <= 255; i++)
+    {
+        if (ft_isascii(i) != isascii(i))
+        {
+            printf("error on the %d-th step\n", i);
+            break ;
+        }
+    }
+    if (i == 256)
+        printf("OK\n");
+    printf("\n*************************************************************\n");
+}
+
+void    test_isprint(void)
+{
+    int i;
+    
+    printf("ft_isprint\n");
+    for (i = - 5; i <= 255; i++)
+    {
+        if (ft_isprint(i) != isprint(i))
+        {
+            printf("error on the %d-th step\n", i);
+            break ;
+        }
+    }
+    if (i == 256)
+        printf("OK\n");
+    printf("\n*************************************************************\n");
+}
+
+void    test_tolower(void)
+{
+    int i;
+    
+    printf("ft_tolower\n");
+    for (i = - 5; i <= 255; i++)
+    {
+        if (ft_tolower(i) != tolower(i))
+        {
+            printf("error on the %d-th step\n", i);
+            break ;
+        }
+    }
+    if (i == 256)
+        printf("OK\n");
+    printf("\n*************************************************************\n");
+}
+
+void    test_toupper(void)
+{
+    int i;
+    
+    printf("ft_toupper\n");
+    for (i = - 5; i <= 255; i++)
+    {
+        if (ft_toupper(i) != toupper(i))
+        {
+            printf("error on the %d-th step\n", i);
+            break ;
+        }
+    }
+    if (i == 256)
+        printf("OK\n");
+    printf("\n*************************************************************\n");
+}
+
+void    test_atoi(void)
+{
+    printf("ft_atoi\n");
+    if (ft_atoi("123456") == atoi("123456")) printf("OK\n"); else printf("error\n");
+    if (ft_atoi("   58965  ") == atoi("   58965  ")) printf("OK\n"); else printf("error\n");
+    if (ft_atoi("   -258  lglg +") == atoi("   -258  lglg +")) printf("OK\n"); else printf("error\n");
+    if (ft_atoi("  +- 25") == atoi("  +- 25")) printf("OK\n"); else printf("error\n");
+    if (ft_atoi("00968") == atoi("00968")) printf("OK\n"); else printf("error\n");
+    if (ft_atoi("  --898uu") == atoi("  --898uu")) printf("OK\n"); else printf("error\n");
+    if (ft_atoi(" +987 poi 25") == atoi(" +987 poi 25")) printf("OK\n"); else printf("error\n");
+    if (ft_atoi("1111111111111111111") == atoi("1111111111111111111")) printf("OK\n"); else printf("error\n");
+    printf("\n*************************************************************\n");
+}
+
+void    test_strdup(void)
+{
+    char *dest = NULL;
+    char *arr = "11";
+    
+    printf("ft_strdup\n");
+    dest = ft_strdup("Hello");
+    printf("%s\n", dest);
+    free(dest);
+    dest = strdup("Hello");
+    printf("%s\n", dest);
+    free(dest);dest = ft_strdup("");
+    printf("%s\n", dest);
+    free(dest);
+    dest = strdup("");
+    printf("%s\n", dest);
+    free(dest);
+    arr = ft_strdup("thrtkh;rtk;lrtkh");
+    printf("%s\n", arr);
+    free(arr);
+    arr = strdup("thrtkh;rtk;lrtkh");
+    printf("%s\n", arr);
+    free(arr);
+    printf("\n*************************************************************\n");
+}
+
+void    test_strcpy(void)
+{
+    char test1[50] = "asdf";
+    char test2[50] = "asdf";
+
+    printf("ft_strcpy\n");
+    printf("%s\n", ft_strcpy(test1, "qwerty\n"));
+    printf("%s\n", strcpy(test2, "qwerty\n"));
+    
+    printf("%s\n", ft_strcpy(test1, ""));
+    printf("%s\n", strcpy(test2, ""));
+    
+    printf("%s\n", ft_strcpy(test1, "hell0\n"));
+    printf("%s\n", strcpy(test2, "hell0\n"));
+
+    printf("%s\n", ft_strcpy(test1, "11111111111111111111118"));
+    printf("%s\n", strcpy(test2, "11111111111111111111118"));
+
+    printf("\n*************************************************************\n");
+
+}
+
+void    test_strstr(void)
+{
+    strstr("abc", "a");
+    /*printf("ft_strstr\n");
+    printf("%s\n", ft_strstr("asdf qwerty", "wer"));
+    printf("%s\n", strstr("asdf qwerty", "wer"));
+
+    printf("%s\n", ft_strstr("asdf qwerty qwerty", "wer"));
+    printf("%s\n", strstr("asdf qwerty qwerty", "wer"));
+
+    printf("%s\n", ft_strstr("asdf qwerty", "qwerty1"));
+    printf("%s\n", strstr("asdf qwerty", "qwerty1"));
+
+    printf("%s\n", ft_strstr("", "wer"));
+    printf("%s\n", strstr("", "wer"));
+
+    printf("%s\n", ft_strstr("asdf qwerty", "zxcv"));
+    printf("%s\n", strstr("asdf qwerty", "zxcv"));
+
+    printf("%s\n", ft_strstr("asdf qwerty", ""));
+    printf("%s\n", strstr("asdf qwerty", ""));*/
+    printf("\n*************************************************************\n");
+
+}
+	int	main()
+{
+	test_strlen();
+	test_isalpha();
+	test_isdigit();
+	test_isalnum();
+    test_isascii();
+    test_isprint();
+    test_tolower();
+    test_toupper();
+    test_atoi();
+    test_strdup();
+    test_strcpy();
+    //test_strstr();
+	return (0);
+}
