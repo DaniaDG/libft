@@ -218,8 +218,8 @@ void    test_strcpy(void)
 
 void    test_strncpy(void)
 {
-    char test1[50] = "asd";
-    char test2[50] = "asd";
+    char test1[] = "asd55";
+    char test2[] = "asd55";
     
     printf("ft_strNcpy\n");
     printf("%s\n", ft_strncpy(test1, "uiop", 5));
@@ -233,8 +233,7 @@ void    test_strncpy(void)
 }
 void    test_strstr(void)
 {
-    strstr("abc", "a");
-    /*printf("ft_strstr\n");
+    printf("ft_strstr\n");
     printf("%s\n", ft_strstr("asdf qwerty", "wer"));
     printf("%s\n", strstr("asdf qwerty", "wer"));
 
@@ -251,7 +250,7 @@ void    test_strstr(void)
     printf("%s\n", strstr("asdf qwerty", "zxcv"));
 
     printf("%s\n", ft_strstr("asdf qwerty", ""));
-    printf("%s\n", strstr("asdf qwerty", ""));*/
+    printf("%s\n", strstr("asdf qwerty", ""));
     printf("\n*************************************************************\n");
 
 }
@@ -269,6 +268,6 @@ void    test_strstr(void)
     test_strdup();
     test_strcpy();
     test_strncpy();
-    //test_strstr();
+    test_strstr();
 	return (0);
 }

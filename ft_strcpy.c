@@ -17,7 +17,7 @@ char	*ft_strcpy(char *str1, const char *str2)
 	i = 0;
 	while (str2[i])
 		i++;
-	while(i >= 0)
+	while (i >= 0)
 	{
 		str1[i] = str2[i];
 		i--;
