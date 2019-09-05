@@ -293,6 +293,19 @@ void    test_strcmp(void)
     if (ft_strcmp("123456888", "123456") == strcmp("123456888", "123456")) printf("OK\n"); else printf("error\n");
     printf("\n*************************************************************\n");
 }
+
+void    test_strncmp(void)
+{
+    printf("ft_strNcmp\n");
+    if (ft_strncmp("123456", "123456", 8) == strncmp("123456","123456", 8)) printf("OK\n"); else printf("error\n");
+    if (ft_strncmp("123H56", "123456", 5) == strncmp("123H56", "123456", 5)) printf("OK\n"); else printf("error\n");
+    if (ft_strncmp("123456", "123456333", 7) == strncmp("123456", "123456333", 7)) printf("OK\n"); else printf("error\n");
+    if (ft_strncmp("Hello", "HelLo", 3) == strncmp("Hello", "HelLo", 3)) printf("OK\n"); else printf("error\n");
+    if (ft_strncmp("123456", "", 1) == strncmp("123456", "", 1)) printf("OK\n"); else printf("error\n");
+    if (ft_strncmp("", "123456", 2) == strncmp("", "123456", 2)) printf("OK\n"); else printf("error\n");
+    if (ft_strncmp("123456888", "123456", 0) == strncmp("123456888", "123456", 0)) printf("OK\n"); else printf("error\n");
+    printf("\n*************************************************************\n");
+}
 	int	main()
 {
 	test_strlen();
@@ -311,5 +324,6 @@ void    test_strcmp(void)
     test_memset();
     test_bzero();
     test_strcmp();
+    test_strncmp();
 	return (0);
 }
