@@ -280,6 +280,19 @@ void    test_bzero(void)
     printf("\n*************************************************************\n");
 
 }
+
+void    test_strcmp(void)
+{
+    printf("ft_strcmp\n");
+    if (ft_strcmp("123456", "123456") == strcmp("123456","123456")) printf("OK\n"); else printf("error\n");
+    if (ft_strcmp("123H56", "123456") == strcmp("123H56", "123456")) printf("OK\n"); else printf("error\n");
+    if (ft_strcmp("123456", "123456333") == strcmp("123456", "123456333")) printf("OK\n"); else printf("error\n");
+    if (ft_strcmp("Hello", "HelLo") == strcmp("Hello", "HelLo")) printf("OK\n"); else printf("error\n");
+    if (ft_strcmp("123456", "") == strcmp("123456", "")) printf("OK\n"); else printf("error\n");
+    if (ft_strcmp("", "123456") == strcmp("", "123456")) printf("OK\n"); else printf("error\n");
+    if (ft_strcmp("123456888", "123456") == strcmp("123456888", "123456")) printf("OK\n"); else printf("error\n");
+    printf("\n*************************************************************\n");
+}
 	int	main()
 {
 	test_strlen();
@@ -297,5 +310,6 @@ void    test_bzero(void)
     test_strstr();
     test_memset();
     test_bzero();
+    test_strcmp();
 	return (0);
 }
