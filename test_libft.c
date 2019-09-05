@@ -254,6 +254,20 @@ void    test_strstr(void)
     printf("\n*************************************************************\n");
 
 }
+
+void    test_memset(void)
+{
+    char    str[] = "Bla bla bla bla bla";
+
+    printf("ft_memset\n");
+    printf("%s\n", str);
+    ft_memset(str + 3, 80, 0);
+    printf("%s\n", str);
+    ft_memset(str + 3, 80, 4);
+    printf("%s\n", str);
+    printf("\n*************************************************************\n");
+
+}
 	int	main()
 {
 	test_strlen();
@@ -269,5 +283,6 @@ void    test_strstr(void)
     test_strcpy();
     test_strncpy();
     test_strstr();
+    test_memset();
 	return (0);
 }
