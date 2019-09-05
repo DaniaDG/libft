@@ -6,7 +6,7 @@
 /*   By: bsausage <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 13:29:31 by bsausage          #+#    #+#             */
-/*   Updated: 2019/09/05 19:28:01 by bsausage         ###   ########.fr       */
+/*   Updated: 2019/09/05 20:19:15 by bsausage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ int		ft_strcmp(const char *s1, const char *s2);
 void	*ft_memcpy(void *dest, const void *src, size_t count);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	*ft_memcpy(void *dst, const void *src, size_t n);
+int		ft_memcmp(const void *s1, const void *s2, size_t n);
 
 #endif

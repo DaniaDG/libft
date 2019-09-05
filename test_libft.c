@@ -275,7 +275,7 @@ void    test_memcpy(void)
 
     printf("ft_memcpy\n");
     printf("%s\n", str);
-    printf("%s\n", memcpy(str, "123456", 5));
+    printf("%s\n", ft_memcpy(str, "123456", 5));
     printf("\n*************************************************************\n");
 }
 
@@ -317,6 +317,28 @@ void    test_strncmp(void)
     printf("\n*************************************************************\n");
 }
 
+void    test_memcmp(void)
+{
+    int a, b;
+
+    printf("ft_memcmp\n");
+    if ((a = ft_memcmp("123456", "123456", 5)) == (b = memcmp("123456","123456", 5))) printf("OK\n"); else printf("error\n");
+    printf("%d\t%d\n", a, b);
+    if ((a = ft_memcmp("123H56", "123456", 5)) == (b = memcmp("123H56", "123456", 5))) printf("OK\n"); else printf("error\n");
+    printf("%d\t%d\n", a, b);
+    if ((a = ft_memcmp("123456", "123456333", 8)) == (b =memcmp("123456", "123456333", 8))) printf("OK\n"); else printf("error\n");
+    printf("%d\t%d\n", a, b);
+    if ((a = ft_memcmp("Hello", "HelLo", 3)) == (b = memcmp("Hello", "HelLo", 3))) printf("OK\n"); else printf("error\n");
+    printf("%d\t%d\n", a, b);
+    if ((a = ft_memcmp("123456", "", 1)) == (b = memcmp("123456", "", 1))) printf("OK\n"); else printf("error\n");
+    printf("%d\t%d\n", a, b);
+    if ((a = ft_memcmp("", "123456", 2)) == (b = memcmp("", "123456", 2))) printf("OK\n"); else printf("error\n");
+    printf("%d\t%d\n", a, b);
+    if ((a = ft_memcmp("123456888", "123456", 7)) == (b = memcmp("123456888", "123456", 7))) printf("OK\n"); else printf("error\n");
+    printf("%d\t%d\n", a, b);
+    printf("\n*************************************************************\n");
+}
+
 /*void    test_strlcat(void)
 {
     сhar test[256] = "\0zxcvzxcvzxcvxzcvzxcv";
@@ -353,6 +375,7 @@ void    test_strncmp(void)
     test_strcmp();
     test_strncmp();
     test_memcpy();
+    test_memcmp();
     //test_strlcat();
 	return (0);
 }
