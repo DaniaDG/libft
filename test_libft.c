@@ -269,6 +269,16 @@ void    test_memset(void)
 
 }
 
+void    test_memcpy(void)
+{
+    char    str[] = "Bla bla bla bla bla";
+
+    printf("ft_memcpy\n");
+    printf("%s\n", str);
+    printf("%s\n", memcpy(str, "123456", 5));
+    printf("\n*************************************************************\n");
+}
+
 void    test_bzero(void)
 {
     char    str[] = "Bla bla bla bla bla";
@@ -306,6 +316,23 @@ void    test_strncmp(void)
     if (ft_strncmp("123456888", "123456", 0) == strncmp("123456888", "123456", 0)) printf("OK\n"); else printf("error\n");
     printf("\n*************************************************************\n");
 }
+
+/*void    test_strlcat(void)
+{
+    сhar test[256] = "\0zxcvzxcvzxcvxzcvzxcv";
+    printf("ft_strLcmp\n");
+    printf("%d-", strlcat(test, "asdf", 16));
+    printf("%s\n", test);
+    printf("%d-", strlcat(test, "asdf", 6));
+    printf("%s\n", test);
+    printf("%d-", strlcat(test, "asdf", 4));
+    printf("%s\n", test);
+    printf("%d-", strlcat(test, "", 16));
+    printf("%s\n", test);
+    printf("%d-", strlcat(test, "asdf", 0));
+    printf("%s\n", test);
+    printf("\n*************************************************************\n");
+}*/
 	int	main()
 {
 	test_strlen();
@@ -325,5 +352,7 @@ void    test_strncmp(void)
     test_bzero();
     test_strcmp();
     test_strncmp();
+    test_memcpy();
+    //test_strlcat();
 	return (0);
 }
