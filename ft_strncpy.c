@@ -25,6 +25,6 @@ char	*ft_strncpy(char *dest, const char *src, size_t count)
 	if (!dest[i] || i == count)
 		return (dest);
 	while (dest[i])
-			dest[i++] = '\0';
+		dest[i++] = '\0';
 	return (dest);
 }
