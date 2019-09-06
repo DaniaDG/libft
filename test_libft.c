@@ -355,6 +355,19 @@ void    test_memmove(void)
 
 }
 
+void    test_memchr(void)
+{
+    char    str[] = "abcdefghijklmnopqrstuvwxyz";
+
+    printf("ft_memchr\n");
+    printf("%s\n", str);
+    printf("%s\n", (char*)ft_memchr(str, 'd', 5));
+    printf("%s\n", str);
+    printf("%s\n", (char*)ft_memchr(str, 'z', 5));
+    printf("\n*************************************************************\n");
+
+}
+
 /*void    test_strlcat(void)
 {
     сhar test[256] = "\0zxcvzxcvzxcvxzcvzxcv";
@@ -393,6 +406,7 @@ void    test_memmove(void)
     test_memcpy();
     test_memcmp();
     test_memmove();
+    test_memchr();
     //test_strlcat();
 	return (0);
 }
