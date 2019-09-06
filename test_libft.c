@@ -339,6 +339,22 @@ void    test_memcmp(void)
     printf("\n*************************************************************\n");
 }
 
+void    test_memmove(void)
+{
+    char    str1[] = "abcdefghijklmnopqrstuvwxyz";
+    char    str2[] = "123456789abcdefghijklmnopqrstuvwxyz";
+    char    *ptr;
+
+    ptr = &str2[9];
+    printf("ft_memove\n");
+    printf("%s\n", str1);
+    printf("%s\n", ft_memmove(str1, "123456", 5));
+    printf("%s\n", str2);
+    printf("%s\n", ft_memmove(str2, ptr, 5));
+    printf("\n*************************************************************\n");
+
+}
+
 /*void    test_strlcat(void)
 {
     сhar test[256] = "\0zxcvzxcvzxcvxzcvzxcv";
@@ -376,6 +392,7 @@ void    test_memcmp(void)
     test_strncmp();
     test_memcpy();
     test_memcmp();
+    test_memmove();
     //test_strlcat();
 	return (0);
 }
