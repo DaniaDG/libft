@@ -11,20 +11,19 @@
 /* ************************************************************************** */
 
 #include <string.h>
+#include "libft.h"
 
 char	*ft_strncpy(char *dest, const char *src, size_t count)
 {
 	size_t	i;
 
 	i = 0;
-	while ((dest[i] || src[i]) && i < count)
+	while (src[i] && i < count)
 	{
 		dest[i] = src[i];
 		i++;
 	}
-	if (!dest[i] || i == count)
-		return (dest);
-	while (dest[i])
+	while (i < count)
 		dest[i++] = '\0';
 	return (dest);
 }
