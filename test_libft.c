@@ -456,22 +456,22 @@ void    test_strncat(void)
     printf("%s\n", strncat(test2, "asdf", 3));
     printf("\n*************************************************************\n");
 }
-/*void    test_strlcat(void)
+void    test_strlcat(void)
 {
-    сhar test[256] = "\0zxcvzxcvzxcvxzcvzxcv";
-    printf("ft_strLcmp\n");
-    printf("%d-", strlcat(test, "asdf", 16));
+    char test[256] = "\0zxcvzxcvzxcvxzcvzxcv";
+    printf("ft_strLcat\n");
+    printf("%ld-", ft_strlcat(test, "asdf", 16));
     printf("%s\n", test);
-    printf("%d-", strlcat(test, "asdf", 6));
+    printf("%ld-", ft_strlcat(test, "asdf", 6));
     printf("%s\n", test);
-    printf("%d-", strlcat(test, "asdf", 4));
+    printf("%ld-", ft_strlcat(test, "asdf", 4));
     printf("%s\n", test);
-    printf("%d-", strlcat(test, "", 16));
+    printf("%ld-", ft_strlcat(test, "", 16));
     printf("%s\n", test);
-    printf("%d-", strlcat(test, "asdf", 0));
+    printf("%ld-", ft_strlcat(test, "asdf", 0));
     printf("%s\n", test);
     printf("\n*************************************************************\n");
-}*/
+}
 	int	main()
 {
 	test_strlen();
@@ -500,6 +500,6 @@ void    test_strncat(void)
     test_strncat();
     test_strnstr();
     test_strrchr();
-    //test_strlcat();
+    test_strlcat();
 	return (0);
 }
