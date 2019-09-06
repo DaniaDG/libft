@@ -399,6 +399,21 @@ void    test_strcat(void)
     printf("\n*************************************************************\n");
 }
 
+void    test_strncat(void)
+{
+    printf("ft_strNcat\n");
+    char test1[256] = "\0zxcvzxcvzxcvxzcvzxcvzxcv";
+    char test2[256] = "\0zxcvzxcvzxcvxzcvzxcvzxcv";
+    printf("%s\n", ft_strncat(test1, "asdf", 16));
+    printf("%s\n", strncat(test2, "asdf", 16));
+    printf("%s\n", ft_strncat(test1, "", 16));
+    printf("%s\n", strncat(test2, "", 16));
+    printf("%s\n", ft_strncat(test1, "qwerty", 0));
+    printf("%s\n", strncat(test2, "qwerty", 0));
+    printf("%s\n", ft_strncat(test1, "asdf", 3));
+    printf("%s\n", strncat(test2, "asdf", 3));
+    printf("\n*************************************************************\n");
+}
 /*void    test_strlcat(void)
 {
     сhar test[256] = "\0zxcvzxcvzxcvxzcvzxcv";
@@ -440,6 +455,7 @@ void    test_strcat(void)
     test_memchr();
     test_strchr();
     test_strcat();
+    test_strncat();
     //test_strlcat();
 	return (0);
 }
