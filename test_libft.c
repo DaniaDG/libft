@@ -385,6 +385,19 @@ void    test_strchr(void)
     printf("\n*************************************************************\n");
 
 }
+void    test_strcat(void)
+{
+    char test[50] = "123456";
+    char test1[50] = "123456";
+    printf("ft_strcat\n");
+    printf("%s\n", ft_strcat(test, "asdf"));
+    printf("%s\n", strcat(test1, "asdf"));
+    printf("%s\n", ft_strcat(test, ""));
+    printf("%s\n", strcat(test1, ""));
+    printf("%s\n", ft_strcat(test, "zxcv"));
+    printf("%s\n", strcat(test1, "zxcv"));
+    printf("\n*************************************************************\n");
+}
 
 /*void    test_strlcat(void)
 {
@@ -426,6 +439,7 @@ void    test_strchr(void)
     test_memmove();
     test_memchr();
     test_strchr();
+    test_strcat();
     //test_strlcat();
 	return (0);
 }
