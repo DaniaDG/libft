@@ -255,6 +255,30 @@ void    test_strstr(void)
 
 }
 
+void    test_strnstr(void)
+{
+    printf("ft_strNstr\n");
+    printf("%s\n", ft_strnstr("asdf qwerty", "wer", 9));
+    printf("%s\n", strnstr("asdf qwerty", "wer", 9));
+
+    printf("%s\n", ft_strnstr("asdf qwerty qwerty", "wer", 8));
+    printf("%s\n", strnstr("asdf qwerty qwerty", "wer", 8));
+
+    printf("%s\n", ft_strnstr("asdf qwerty", "qwerty1", 15));
+    printf("%s\n", strnstr("asdf qwerty", "qwerty1", 15));
+
+    printf("%s\n", ft_strnstr("", "wer", 2));
+    printf("%s\n", strnstr("", "wer", 2));
+
+    printf("%s\n", ft_strnstr("asdf qwerty", "zxcv", 6));
+    printf("%s\n", strnstr("asdf qwerty", "zxcv", 6));
+
+    printf("%s\n", ft_strnstr("asdf qwerty", "", 1));
+    printf("%s\n", strnstr("asdf qwerty", "", 1));
+    printf("\n*************************************************************\n");
+
+}
+
 void    test_memset(void)
 {
     char    str[] = "Bla bla bla bla bla";
@@ -456,6 +480,7 @@ void    test_strncat(void)
     test_strchr();
     test_strcat();
     test_strncat();
+    test_strnstr();
     //test_strlcat();
 	return (0);
 }

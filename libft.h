@@ -6,7 +6,7 @@
 /*   By: bsausage <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/04 13:29:31 by bsausage          #+#    #+#             */
-/*   Updated: 2019/09/06 12:20:58 by bsausage         ###   ########.fr       */
+/*   Updated: 2019/09/06 12:49:46 by bsausage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ void	*ft_memchr(const void *s, int c, size_t n);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strcat(char *dest, const char *src);
 char	*ft_strncat(char *dest, const char *src, size_t count);
+char	*ft_strnstr(const char *str, const char *to_find, size_t n);
 
 #endif
