@@ -17,6 +17,7 @@
 
 void	ft_putchar(char c);
 void	ft_putstr(char const *s);
+char	*ft_itoa(int n);
 size_t	ft_strlen(const char *str);
 int		ft_isalpha(int ch);
 int		ft_isdigit(int ch);
