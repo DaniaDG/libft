@@ -397,15 +397,33 @@ void    test_strchr(void)
     char    str[] = "abcdefghijklmnopqrstuvwxyz";
 
     printf("ft_strchr\n");
-    printf("%s\n", str);
+    //printf("%s\n", str);
     printf("%s\n", ft_strchr(str, 'd'));
     printf("%s\n", strchr(str, 'd'));
-    printf("%s\n", str);
+    //printf("%s\n", str);
     printf("%s\n", ft_strchr(str, 'z'));
     printf("%s\n", strchr(str, 'z'));
-    printf("%s\n", str);
+    //printf("%s\n", str);
     printf("%s\n", ft_strchr(str, '\0'));
     printf("%s\n", strchr(str, '\0'));
+    printf("\n*************************************************************\n");
+
+}
+
+void    test_strrchr(void)
+{
+    char    str[] = "abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyz";
+
+    printf("ft_strRchr\n");
+    //printf("%s\n", str);
+    printf("%s\n", ft_strrchr(str, 'd'));
+    printf("%s\n", strrchr(str, 'd'));
+    //printf("%s\n", str);
+    printf("%s\n", ft_strrchr(str, 'z'));
+    printf("%s\n", strrchr(str, 'z'));
+   // printf("%s\n", str);
+    printf("%s\n", ft_strrchr(str, '\0'));
+    printf("%s\n", strrchr(str, '\0'));
     printf("\n*************************************************************\n");
 
 }
@@ -481,6 +499,7 @@ void    test_strncat(void)
     test_strcat();
     test_strncat();
     test_strnstr();
+    test_strrchr();
     //test_strlcat();
 	return (0);
 }
