@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striter.c                                       :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsausage <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/07 14:14:41 by bsausage          #+#    #+#             */
-/*   Updated: 2019/09/07 14:14:42 by bsausage         ###   ########.fr       */
+/*   Created: 2019/09/07 14:33:10 by bsausage          #+#    #+#             */
+/*   Updated: 2019/09/07 14:33:11 by bsausage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_striter(char *s, void (*f)(char *))
+int		ft_strequ(char const *s1, char const *s2)
 {
-	if (!s || !f)
-		return ;
-	while (*s)
-		f(s++);
+	while (*s1 && *s2)
+	{
+		if (*s1++ != *s2++)
+			return (0);
+	}
+	if (!(*s1) && !(*s2))
+		return (1);
+	return (0);
 }

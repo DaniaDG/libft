@@ -1,19 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striter.c                                       :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsausage <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/07 14:14:41 by bsausage          #+#    #+#             */
-/*   Updated: 2019/09/07 14:14:42 by bsausage         ###   ########.fr       */
+/*   Created: 2019/09/07 14:33:20 by bsausage          #+#    #+#             */
+/*   Updated: 2019/09/07 14:33:21 by bsausage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_striter(char *s, void (*f)(char *))
+#include <string.h>
+
+int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	if (!s || !f)
-		return ;
-	while (*s)
-		f(s++);
+	while (*s1 && *s2 && n)
+	{
+		if (*s1++ != *s2++)
+			return (0);
+		n--;
+	}
+	if (*s1 == *s2 || !n)
+		return (1);
+	return (0);
 }
