@@ -33,19 +33,40 @@ static int		words_nb(char const *s, char c)
 	return (n);
 }
 
-static void		put_words(char **array ,char const *s, char c)
+static int		word_len(char const *s, char c)
 {
-	
+	int	len;
+
+	len = 0;
+	while (*s == c)
+		s++;
+	while (*s != c && *s)
+	{
+		len++;
+		s++;
+	}
+	return (len);
 }
-char	**ft_strsplit(char const *s, char c)
+
+char			**ft_strsplit(char const *s, char c)
 {
 	char			**arr_w;
-	unsigned int	start;
 	size_t			len;
 
-	*arr_w = (char**)malloc(sizeof(char*) * (words_nb(s, c) + 1));
-	if (!arr)
+	arr_w = (char**)malloc(sizeof(char*) * (words_nb(s, c) + 1));
+	if (!arr_w)
 		return (NULL);
-
-	
+	while (*s)
+	{
+		if (*s == c)
+			s++;
+		else
+		{
+			*arr_w = ft_strsub(s, 0, len = word_len(s, c));
+			arr_w++;
+			s = s + len;
+		}
+	}
+	*arr_w = (NULL);
+	return (arr_w);
 }

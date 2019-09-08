@@ -165,7 +165,7 @@ void    test_atoi(void)
     if (ft_atoi("00968") == atoi("00968")) printf("OK\n"); else printf("error\n");
     if (ft_atoi("  --898uu") == atoi("  --898uu")) printf("OK\n"); else printf("error\n");
     if (ft_atoi(" +987 poi 25") == atoi(" +987 poi 25")) printf("OK\n"); else printf("error\n");
-    if (ft_atoi("1111111111111111111") == atoi("1111111111111111111")) printf("OK\n"); else printf("error\n");
+    if (ft_atoi("99999999999999999999999") == atoi("99999999999999999999999")) printf("OK\n"); else printf("error\n");
     printf("\n*************************************************************\n");
 }
 
@@ -472,6 +472,22 @@ void    test_strlcat(void)
     printf("%s\n", test);
     printf("\n*************************************************************\n");
 }
+
+void	test_strsplit(void)
+{
+	char	*test = "*Hello***my**dear****friend!*";
+	char	**arr = NULL;
+	
+	printf("ft_strsplit\n");
+	arr = ft_strsplit(test, '*');
+	printf("%s\n", arr[0]);
+	printf("%s\n", arr[1]);
+	printf("%s\n", arr[2]);
+	printf("%s\n", arr[3]);
+	printf("%s\n", arr[4]);
+    printf("\n*************************************************************\n");
+
+}
 	int	main()
 {
 	test_strlen();
@@ -501,5 +517,6 @@ void    test_strlcat(void)
     test_strnstr();
     test_strrchr();
     test_strlcat();
+	test_strsplit();
 	return (0);
 }
