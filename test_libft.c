@@ -165,8 +165,10 @@ void    test_atoi(void)
     if (ft_atoi("00968") == atoi("00968")) printf("OK\n"); else printf("error\n");
     if (ft_atoi("  --898uu") == atoi("  --898uu")) printf("OK\n"); else printf("error\n");
     if (ft_atoi(" +987 poi 25") == atoi(" +987 poi 25")) printf("OK\n"); else printf("error\n");
-    if (ft_atoi("99999999999999999999999") == atoi("99999999999999999999999")) printf("OK\n"); else printf("error\n");
-    printf("\n*************************************************************\n");
+    printf("%d\n", ft_atoi("99999999999999999999999")); 
+	printf("%d\n", atoi("99999999999999999999999"));// printf("OK\n"); else printf("error\n");
+    
+	printf("\n*************************************************************\n");
 }
 
 void    test_strdup(void)
@@ -480,6 +482,8 @@ void	test_strsplit(void)
 	
 	printf("ft_strsplit\n");
 	arr = ft_strsplit(test, '*');
+	printf("1111ft_strsplit\n");
+
 	printf("%s\n", arr[0]);
 	printf("%s\n", arr[1]);
 	printf("%s\n", arr[2]);

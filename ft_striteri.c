@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsausage <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/06 18:35:26 by bsausage          #+#    #+#             */
-/*   Updated: 2019/09/06 18:36:07 by bsausage         ###   ########.fr       */
+/*   Created: 2019/09/08 14:42:48 by bsausage          #+#    #+#             */
+/*   Updated: 2019/09/08 14:42:49 by bsausage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include "libft.h"
-
-void	ft_putchar(char c)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	unsigned char	a;
+	unsigned int	i;
 
-	a = (unsigned char)c;
-	if (ft_isascii((unsigned char)c))
-		write(1, &c, 1);
-	else
-		write(1, &a, 4);
+	i = 0;
+	if (!s || !f)
+		return ;
+	while (*s)
+		f(i++, s++);
 }

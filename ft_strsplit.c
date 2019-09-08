@@ -29,7 +29,7 @@ static int		words_nb(char const *s, char c)
 		i++;
 	}
 	if (!s[i] && s[i - 1] != c)
-	    n++;
+		n++;
 	return (n);
 }
 
@@ -52,8 +52,12 @@ char			**ft_strsplit(char const *s, char c)
 {
 	char			**arr_w;
 	size_t			len;
+	int				nb;
 
-	arr_w = (char**)malloc(sizeof(char*) * (words_nb(s, c) + 1));
+	if (!s)
+		return (NULL);
+	nb = words_nb(s, c);
+	arr_w = (char**)malloc(sizeof(char*) * (nb + 1));
 	if (!arr_w)
 		return (NULL);
 	while (*s)
@@ -62,11 +66,13 @@ char			**ft_strsplit(char const *s, char c)
 			s++;
 		else
 		{
-			*arr_w = ft_strsub(s, 0, len = word_len(s, c));
+			len = word_len(s, c);
+			if (!(*arr_w = ft_strsub(s, 0, len)))
+				return (NULL);
 			arr_w++;
 			s = s + len;
 		}
 	}
 	*arr_w = (NULL);
-	return (arr_w);
+	return (arr_w - nb);
 }

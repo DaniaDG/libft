@@ -10,11 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_atoi(const char *str)
+static void		check_overlong(unsigned long *n, int *sign)
 {
-	int	i;
-	int	sign;
-	int result;
+	unsigned long max;
+
+	max = 9223372036854775807;
+	if (*n > max && *sign > 0)
+	{
+		*n = 1;
+		*sign = -1;
+	}
+	if ((*n > max + 1) && *sign < 0)
+		*n = 0;
+}
+
+int				ft_atoi(const char *str)
+{
+	int				i;
+	int				sign;
+	unsigned long	result;
 
 	i = 0;
 	sign = 1;
@@ -33,5 +47,6 @@ int		ft_atoi(const char *str)
 		result = result * 10 + (str[i] - '0');
 		i++;
 	}
-	return (result * sign);
+	check_overlong(&result, &sign);
+	return ((int)result * sign);
 }

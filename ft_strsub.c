@@ -17,10 +17,11 @@ char	*ft_strsub(char const *s, unsigned int start, size_t len)
 	char	*ptr;
 	char	*result;
 
-	ptr = (char*)malloc(sizeof(char) * (len + 1));
-	result = ptr;
-	if (!ptr)
+	if (!s)
 		return (NULL);
+	if (!(ptr = (char*)malloc(sizeof(char) * (len + 1))))
+		return (NULL);
+	result = ptr;
 	while (len--)
 		*ptr++ = *(s + start++);
 	*ptr = '\0';
