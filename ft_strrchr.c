@@ -11,12 +11,21 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char	ch;
-	int		i;
-	int		n;
+	char	*ptr;
+
+	ptr = (char*)s + ft_strlen(s);
+	while (*ptr != c && ptr != s)
+		ptr--;
+	if (*ptr != c && ptr == s)
+		return (NULL);
+	return (ptr);
+}
+/*
+
 
 	i = 0;
 	ch = (char)c;
@@ -31,4 +40,4 @@ char	*ft_strrchr(const char *s, int c)
 	if (n == 0 && s[0] != ch)
 		return (NULL);
 	return ((char*)(s + n));
-}
+}*/
