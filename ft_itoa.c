@@ -35,8 +35,8 @@ char		*ft_itoa(int n)
 	int		len;
 
 	len = num_of_letters(n);
-	str = NULL;
-	str = (char *)malloc(sizeof(char) * (len + 1));
+	if (!(str = (char *)malloc(sizeof(char) * (len + 1))))
+		return (NULL);
 	if (n == 0)
 		str[0] = '0';
 	if (str)

@@ -15,11 +15,5 @@
 
 void	ft_putchar(char c)
 {
-	unsigned char	a;
-
-	a = (unsigned char)c;
-	if (ft_isascii((unsigned char)c))
-		write(1, &c, 1);
-	else
-		write(1, &a, 4);
+	write(1, &c, 1);
 }

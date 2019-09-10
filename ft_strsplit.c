@@ -13,29 +13,27 @@
 #include <stdlib.h>
 #include "libft.h"
 
-static int		words_nb(char const *s, char c)
+static size_t		words_nb(char const *s, char c)
 {
-	int i;
-	int n;
+	size_t n;
 
-	i = 0;
 	n = 0;
-	while (s[i] == c)
-		i++;
-	while (s[i])
+	while (*s == c)
+		s++;
+	while (*s)
 	{
-		if (s[i] == c && s[i + 1] != c)
+		if (*s == c && *(s + 1) != c)
 			n++;
-		i++;
+		s++;
 	}
-	if (!s[i] && s[i - 1] != c)
+	if (!*s && *(s -1) != c)
 		n++;
 	return (n);
 }
 
-static int		word_len(char const *s, char c)
+static size_t		word_len(char const *s, char c)
 {
-	int	len;
+	size_t	len;
 
 	len = 0;
 	while (*s == c)
@@ -52,14 +50,15 @@ char			**ft_strsplit(char const *s, char c)
 {
 	char			**arr_w;
 	size_t			len;
-	int				nb;
+	size_t			nb;
+	size_t			i;
 
 	if (!s)
 		return (NULL);
 	nb = words_nb(s, c);
-	arr_w = (char**)malloc(sizeof(char*) * (nb + 1));
-	if (!arr_w)
+	if (!(arr_w = (char**)malloc(sizeof(char*) * (nb + 1))))
 		return (NULL);
+	i = 0;
 	while (*s)
 	{
 		if (*s == c)
@@ -75,4 +74,5 @@ char			**ft_strsplit(char const *s, char c)
 	}
 	*arr_w = (NULL);
 	return (arr_w - nb);
-}
+	}
+	
