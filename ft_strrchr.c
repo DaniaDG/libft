@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
@@ -24,20 +23,3 @@ char	*ft_strrchr(const char *s, int c)
 		return (NULL);
 	return (ptr);
 }
-/*
-
-
-	i = 0;
-	ch = (char)c;
-	while (s[i])
-	{
-		if (s[i] == ch)
-			n = i;
-		i++;
-	}
-	if (s[i] == ch)
-		n = i;
-	if (n == 0 && s[0] != ch)
-		return (NULL);
-	return ((char*)(s + n));
-}*/

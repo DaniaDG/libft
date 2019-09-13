@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 static size_t		words_nb(char const *s, char c)
@@ -18,16 +17,17 @@ static size_t		words_nb(char const *s, char c)
 	size_t n;
 
 	n = 0;
-	while (*s == c)
-		s++;
 	while (*s)
 	{
-		if (*s == c && *(s + 1) != c)
+		while (*s == c)
+			s++;
+		if (*s != c && *s)
+		{
 			n++;
-		s++;
+			while (*s != c && *s)
+				s++;
+		}
 	}
-	if (!*s && *(s -1) != c)
-		n++;
 	return (n);
 }
 
@@ -46,7 +46,14 @@ static size_t		word_len(char const *s, char c)
 	return (len);
 }
 
-char			**ft_strsplit(char const *s, char c)
+static void			free_arr(char **arr, size_t i)
+{
+	while (i--)
+		free(arr[i]);
+	free(arr);
+}
+
+char				**ft_strsplit(char const *s, char c)
 {
 	char			**arr_w;
 	size_t			len;
@@ -59,20 +66,18 @@ char			**ft_strsplit(char const *s, char c)
 	if (!(arr_w = (char**)malloc(sizeof(char*) * (nb + 1))))
 		return (NULL);
 	i = 0;
-	while (*s)
+	while (i < nb)
 	{
-		if (*s == c)
+		while (*s == c)
 			s++;
-		else
+		len = word_len(s, c);
+		if (!(arr_w[i++] = ft_strsub(s, 0, len)))
 		{
-			len = word_len(s, c);
-			if (!(*arr_w = ft_strsub(s, 0, len)))
-				return (NULL);
-			arr_w++;
-			s = s + len;
+			free_arr(arr_w, --i);
+			return (NULL);
 		}
+		s = s + len;
 	}
-	*arr_w = (NULL);
-	return (arr_w - nb);
-	}
-	
+	arr_w[i] = NULL;
+	return (arr_w);
+}

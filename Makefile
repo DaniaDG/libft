@@ -16,7 +16,7 @@ M_FLAG = -Wextra -Werror -Wall
 
 O_FLAG = -c -I
 
-CFILES = *.c
+CFILES = ft*.c
 
 OFILES = *.o
 

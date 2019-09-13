@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include "libft.h"
 
 t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
@@ -19,7 +18,7 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 
 	if (!lst || !f)
 		return (NULL);
-	if(!(list = (t_list*)malloc(sizeof(t_list))))
+	if (!(list = (t_list*)malloc(sizeof(t_list))))
 		return (NULL);
 	list = f(lst);
 	list->next = ft_lstmap(lst->next, f);
