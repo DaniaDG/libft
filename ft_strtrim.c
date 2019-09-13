@@ -24,14 +24,14 @@ char	*ft_strtrim(char const *s)
 		s++;
 	if (!(*s))
 	{
-		ptr = (char*)malloc(sizeof(char));
+		if (!(ptr = (char*)malloc(sizeof(char))))
+			return (NULL);
 		*ptr = '\0';
 		return (ptr);
 	}
 	while (*p == '\n' || *p == '\t' || *p == ' ')
 		p--;
-	ptr = (char*)malloc(sizeof(char) * (p - s + 2));
-	if (!ptr)
+	if (!(ptr = (char*)malloc(sizeof(char) * (p - s + 2))))
 		return (NULL);
 	ptr = ft_strncpy(ptr, s, p - s + 1);
 	ptr[p - s + 1] = '\0';
