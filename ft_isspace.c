@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsausage <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/06 18:36:48 by bsausage          #+#    #+#             */
-/*   Updated: 2019/09/06 18:36:54 by bsausage         ###   ########.fr       */
+/*   Created: 2019/09/03 19:36:10 by bsausage          #+#    #+#             */
+/*   Updated: 2019/09/03 19:48:26 by bsausage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	ft_putstr(char const *s)
+int		ft_isspace(char ch)
 {
-	if (!s)
-		return ;
-	write(1, s, ft_strlen(s));
+	if ((ch == '\n' ||
+		ch == '\t' ||
+		ch == ' ' ||
+		ch == '\r' ||
+		ch == '\v' ||
+		ch == '\f'))
+		return (1);
+	return (0);
 }

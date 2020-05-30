@@ -1,53 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strtol.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bsausage <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/09/03 19:24:19 by bsausage          #+#    #+#             */
-/*   Updated: 2019/09/03 19:26:09 by bsausage         ###   ########.fr       */
+/*   Created: 2019/09/06 18:51:12 by bsausage          #+#    #+#             */
+/*   Updated: 2019/09/06 18:51:16 by bsausage         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "limits.h"
 #include "libft.h"
 
-static void		check_overlong(unsigned long *n, int *sign)
+long			ft_strtol(const char *str, char **end)
 {
-	unsigned long max;
-
-	max = 9223372036854775807;
-	if (*n > max && *sign > 0)
-	{
-		*n = 1;
-		*sign = -1;
-	}
-	if ((*n > max + 1) && *sign < 0)
-		*n = 0;
-}
-
-int				ft_atoi(const char *str)
-{
-	int				i;
-	int				sign;
-	unsigned long	result;
+	int						i;
+	int						sign;
+	unsigned long long		result;
 
 	i = 0;
 	sign = 1;
 	result = 0;
-	while (ft_isspace(str[i]))
+	while (ft_isspace(str[i]) && str[i])
 		i++;
 	if (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-')
-			sign = -1;
-		i++;
-	}
+		sign = str[i++] == '-' ? -1 : 1;
 	while (str[i] >= '0' && str[i] <= '9' && str[i])
 	{
-		result = result * 10 + (str[i] - '0');
-		i++;
+		result = result * 10 + (str[i++] - '0');
+		if (sign > 0 && result >= (unsigned long long)LONG_MAX)
+			return (LONG_MAX);
+		if (sign < 0 && result >= (unsigned long long)LONG_MAX + 1)
+			return (LONG_MIN);
 	}
-	check_overlong(&result, &sign);
-	return ((int)result * sign);
+	if (end)
+		*end = (char*)&str[i];
+	return (result * sign);
 }

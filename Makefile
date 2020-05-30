@@ -12,11 +12,14 @@
 
 NAME = libft.a
 
-M_FLAG = -Wextra -Werror -Wall
-
-O_FLAG = -c -I
-
-SRC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
+CC = gcc
+FLAGS = -Wall -Werror -Wextra -c -g
+INCLUDES = -I$(HEADERS_DIRECTORY)
+HEADERS_LIST = libft.h
+HEADERS_DIRECTORY = ./
+HEADERS = $(addprefix $(HEADERS_DIRECTORY), $(HEADERS_LIST))
+SOURCES_DIRECTORY = ./
+SOURCES_LIST = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c \
 ft_memchr.c ft_memcmp.c	ft_strlen.c ft_strdup.c ft_strcpy.c \
 ft_strncpy.c ft_strcat.c ft_strncat.c ft_strlcat.c ft_strchr.c \
 ft_strrchr.c ft_strstr.c ft_strnstr.c ft_strcmp.c ft_strncmp.c \
@@ -28,22 +31,30 @@ ft_strnequ.c ft_strsub.c ft_strjoin.c ft_strtrim.c ft_strsplit.c \
 ft_itoa.c ft_putchar.c ft_putstr.c ft_putendl.c ft_putnbr.c \
 ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c ft_lstiter.c \
-ft_lstmap.c
+ft_lstmap.c ft_isspace.c ft_strtol.c ft_min.c ft_max.c ft_abs.c
 
-OBJ = $(SRC:.c=.o)
+SOURCES = $(addprefix $(SOURCES_DIRECTORY), $(SOURCES_LIST))
+OBJECTS_DIRECTORY = ./
+OBJECTS_LIST = $(patsubst %.c, %.o, $(SOURCES_LIST))
+OBJECTS	= $(addprefix $(OBJECTS_DIRECTORY), $(OBJECTS_LIST))
+
+.PHONY: all clean fclean re
 
 all: $(NAME)
 
-$(NAME):
-	gcc $(O_FLAG) $(M_FLAG) $(SRC)
-	ar rc $(NAME) $(OBJ)
+$(NAME): $(OBJECTS)
+	ar rc $(NAME) $(OBJECTS)
+	ranlib $(NAME)
+
+$(OBJECTS_DIRECTORY)%.o : $(SOURCES_DIRECTORY)%.c $(HEADERS)
+	$(CC) $(FLAGS) $(INCLUDES) $< -o $@
 
 clean:
-	rm -f $(OBJ)
+	rm -f $(OBJECTS)
 
 fclean: clean
 	rm -f $(NAME)
 
-re: fclean all
-
-.PHONY: clean fclean all re
+re:
+	$(MAKE) fclean
+	$(MAKE) all
